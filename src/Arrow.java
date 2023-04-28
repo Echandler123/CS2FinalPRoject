@@ -1,11 +1,14 @@
-public class Arrow {
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.ImageObserver;
+public class Arrow extends JFrame{
     private int fx;              // front x
     private int fy;              // front y
     private int dx;             // delta x in one time unit
     private int dy;             // delta y in one time unit
     private int bx;              // back x
     private int by;              // back y
-
+    private Image Arrow;
     public Arrow()
     {
          this(100,100,0,100,0,0);
