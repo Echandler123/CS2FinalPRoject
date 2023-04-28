@@ -1,26 +1,23 @@
 public class Arrow {
-    private int x;              // Center x
-    private int y;              // Center y
+    private int fx;              // Center x
+    private int fy;              // Center y
     private int dx;             // delta x in one time unit
     private int dy;             // delta y in one time unit
-
+    private int bx;              // Center x
+    private int by;              // Center y
 
     public Arrow()
     {
-         this(200, 300,0,0, 10);
+         this(100,100,0,100,0,0);
     }
 
-    public Arrow(int xIn, int yIn, int dxIn, int dyIn, int i)
+    public Arrow(int fx, int fy, int bx, int by, int dx, int dy)
     {
-        x = xIn;
-        y = yIn;
-        dx = dxIn;
-        dy = dyIn;
+
     }
     public void setCenter(int xIn, int yIn)
     {
-        x = xIn;
-        y = yIn;
+
     }
 
 }
