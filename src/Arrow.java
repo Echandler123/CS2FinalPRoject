@@ -35,4 +35,7 @@ public class Arrow {
     public int getBy() {
         return by;
     }
+    public void draw(Graphics g){
+        g.drawImage(Arrow,500,300,100,200,this);
+    }
 }
