@@ -1,10 +1,10 @@
 public class Arrow {
-    private int fx;              // Center x
-    private int fy;              // Center y
+    private int fx;              // front x
+    private int fy;              // front y
     private int dx;             // delta x in one time unit
     private int dy;             // delta y in one time unit
-    private int bx;              // Center x
-    private int by;              // Center y
+    private int bx;              // back x
+    private int by;              // back y
 
     public Arrow()
     {
@@ -20,4 +20,19 @@ public class Arrow {
 
     }
 
+    public int getFx() {
+        return fx;
+    }
+
+    public int getFy() {
+        return fy;
+    }
+
+    public int getBx() {
+        return bx;
+    }
+
+    public int getBy() {
+        return by;
+    }
 }
