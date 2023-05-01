@@ -6,16 +6,18 @@ public class Bow extends JFrame{
     private int Stringx;
     private int Stringy;
     private Image Bow;
+    private int x;
 
     public Bow()
     {
-        this(800,500,0,100,0,0);
+        this(400,400,0,0,0,0);
         Bow = new ImageIcon("Resources/Bow.png").getImage();
+        x = 400;
     }
 
     public Bow(int fx, int fy, int bx, int by, int dx, int dy)
     {
-
+        x = 400;
     }
     public int getStringx() {
         return Stringx;
@@ -26,10 +28,10 @@ public class Bow extends JFrame{
     }
     public void draw(Graphics g){
 
-        g.drawImage(Bow,400,400,200,180,this);
+        g.drawImage(Bow,x,400,50,180,this);
     }
     public void draw(Graphics g,int w,int h){
-        g.drawImage(Bow,400 - w,400, 200+w,180,this);
+        g.drawImage(Bow,400,400, 50+w/20,180,this);
     }
 
 }
