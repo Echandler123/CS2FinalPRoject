@@ -11,7 +11,8 @@ public class Arrow extends JFrame{
     private Image Arrow;
     public Arrow()
     {
-         this(100,100,0,100,0,0);
+         this(800,500,0,100,0,0);
+         Arrow = new ImageIcon("Resources/Arrow.png").getImage();
     }
 
     public Arrow(int fx, int fy, int bx, int by, int dx, int dy)
@@ -39,6 +40,7 @@ public class Arrow extends JFrame{
         return by;
     }
     public void draw(Graphics g){
-        g.drawImage(Arrow,500,300,100,200,this);
+
+        g.drawImage(Arrow,0,400,100,80,this);
     }
 }
