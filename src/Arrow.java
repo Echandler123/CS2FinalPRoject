@@ -19,9 +19,10 @@ public class Arrow extends JFrame{
     {
 
     }
-    public void setCenter(int xIn, int yIn)
+    public void setDraw(Bow b)
     {
-
+        bx = b.getStringx();
+        by = b.getStringy();
     }
 
     public int getFx() {
@@ -41,6 +42,6 @@ public class Arrow extends JFrame{
     }
     public void draw(Graphics g){
 
-        g.drawImage(Arrow,0,400,100,80,this);
+        g.drawImage(Arrow,100,400,100,80,this);
     }
 }

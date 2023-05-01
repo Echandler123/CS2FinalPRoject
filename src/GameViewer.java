@@ -5,16 +5,19 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 public class GameViewer extends JFrame implements MouseListener, MouseMotionListener {
-    private Arrow A;
+    private Bow B;
     private int clickNum;
+    private int x;
+    private int y;
     public GameViewer(int fWidth, int fHeight)
     {
         // Create a Ball with the 0 parameter constructor
         // Look at the Ball class to see how this constructor
         // initializes the Ball instance variables
-        A = new Arrow();
+        B = new Bow();
         clickNum = 0;
-
+        x = 0;
+        y = 0;
         // Initialize the User Interface
         setSize(fWidth, fHeight);
         setLocationRelativeTo(null);
@@ -71,8 +74,9 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
 //        g.drawString("Click and drag to move the arrow.", INFO_STR_X, INFO_STR_3_Y);
 
         // Have the ball draw itself
-        A.draw(g);
+        B.draw(g,x,y);
     }
+
     @Override
     public void mouseClicked(MouseEvent e) {
         //
@@ -103,11 +107,11 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         System.out.println("\t\t\texecuting mouseDragged event handler");
 
         // Ask the input event the current location (x and y position on the Frame) of the mouse
-        int x = e.getX();
-        int y = e.getY();
+        x = e.getX();
+        y = e.getY();
 
         // Move the ball
-        A.setCenter(x, y);
+
 
         // Repaint, leads to the system calling MouseDemo.paint()
         repaint();
