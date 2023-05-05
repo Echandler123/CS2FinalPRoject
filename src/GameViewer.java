@@ -6,6 +6,7 @@ import java.awt.event.MouseMotionListener;
 
 public class GameViewer extends JFrame implements MouseListener, MouseMotionListener {
     private Bow B;
+    private Arrow A;
     private int clickNum;
     private int x;
     private int y;
@@ -15,6 +16,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         // Look at the Ball class to see how this constructor
         // initializes the Ball instance variables
         B = new Bow();
+        A= new Arrow();
         clickNum = 0;
         x = 0;
         y = 0;
@@ -75,6 +77,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
 
         // Have the ball draw itself
         B.draw(g,x,y);
+        A.draw(g);
     }
 
     @Override
