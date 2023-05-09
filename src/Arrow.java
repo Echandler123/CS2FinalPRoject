@@ -40,8 +40,27 @@ public class Arrow extends JFrame{
     public int getBy() {
         return by;
     }
-    public void draw(Graphics g){
+    public void curve(int value)
+    {
+        for(int i = value/2; i >= -value/2; i--)
+        {
+               dx = i;
+               dy = parabola(value);
+        }
 
-        g.drawImage(Arrow,350,430,180,180,this);
     }
+    public int parabola(int val)
+    {
+        int num = (val/10)^2;
+        return num;
+    }
+    public void pull(int val, Graphics g)
+    {
+
+            drawpull(g,val);
+    }
+    public void drawpull(Graphics g,int x){
+        g.drawImage(Arrow,620+x/20,388, 180,210,this);
+    }
+
 }

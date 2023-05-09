@@ -28,10 +28,10 @@ public class Bow extends JFrame{
     }
     public void draw(Graphics g){
 
-        g.drawImage(Bow,x,400,50,180,this);
+        g.drawImage(Bow,x,700,50,180,this);
     }
     public void draw(Graphics g,int w,int h){
-        g.drawImage(Bow,400,400, 50+w/20,180,this);
+        g.drawImage(Bow,700,400, 50+w/20,180,this);
     }
 
 }
