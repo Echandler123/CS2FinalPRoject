@@ -8,6 +8,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     private Bow B;
     private Arrow A;
     private int clickNum;
+    private Target T;
     private int x;
     private int y;
     private int val;
@@ -18,6 +19,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         // initializes the Ball instance variables
         B = new Bow();
         A= new Arrow();
+        T = new Target();
         clickNum = 0;
         x = 0;
         y = 0;
@@ -60,7 +62,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         // Finally, set the Color to BLACK to draw the information strings
 
         // Set the background of the Frame to LIGHT_GRAY
-        g.setColor(Color.LIGHT_GRAY);
+        g.setColor(Color.WHITE);
         g.fillRect(0, getInsets().top, getWidth(), getHeight());
         // Note: getInsets().top just finds where the Title Bar ends and the usable area starts
 
@@ -78,6 +80,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
 //        g.drawString("Click and drag to move the arrow.", INFO_STR_X, INFO_STR_3_Y);
 
         // Have the ball draw itself
+        T.draw(g);
         B.draw(g,x,y);
         A.pull(val,g);
     }
@@ -95,6 +98,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     @Override
     public void mouseReleased(MouseEvent e) {
         //
+
     }
 
     @Override
