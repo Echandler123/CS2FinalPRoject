@@ -8,11 +8,13 @@ public class Arrow extends JFrame{
     private int rval;
     private final int widthBinitail = 50;
     private int power;
+    private int x2;
 
     public Arrow()
     {
          this(400,400,0,0,0,0);
          Arrow = new ImageIcon("Resources/Arrow.png").getImage();
+         x2 = 0;
     }
 
     public Arrow(int fx, int fy, int bx, int by, int dx, int dy)
@@ -28,12 +30,16 @@ public class Arrow extends JFrame{
     }
 
 
-    public void pull(int val, Graphics g,int width)
+    public void pull(int val, Graphics g,int x)
     {
-            drawpull(g,val,power);
+            drawpull(g,val,x);
     }
     public void drawpull(Graphics g,int x, int y){
-        g.drawImage(Arrow,620+x/20,388 - y, 180,210,this);
+        x2 = (620+x/20);
+        if(y > 0) {
+            x2 = y;
+        }
+        g.drawImage(Arrow,x2,388 - y, 180,210,this);
     }
 
 }

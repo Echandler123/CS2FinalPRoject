@@ -1,8 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-
-
-
 public class Target extends JFrame {
     private Image Target;
     public Target() {
