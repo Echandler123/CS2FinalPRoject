@@ -39,7 +39,7 @@ public class Arrow extends JFrame{
         if(y > 0) {
             x2 = y;
         }
-        g.drawImage(Arrow,x2,388 - y, 180,210,this);
+        g.drawImage(Arrow,x2,388, 180,210,this);
     }
 
 }
