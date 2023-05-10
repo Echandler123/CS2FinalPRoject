@@ -2,13 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 public class Arrow extends JFrame{
-    private int fx;              // front x
-    private int fy;              // front y
-    private int dx;             // delta x in one time unit
-    private int dy;             // delta y in one time unit
-    private int bx;              // back x
-    private int by;              // back y
+    private final int x = 520;
+
     private Image Arrow;
+    private int rval;
+    private final int widthBinitail = 50;
+    private int power;
+
     public Arrow()
     {
          this(400,400,0,0,0,0);
@@ -19,48 +19,21 @@ public class Arrow extends JFrame{
     {
 
     }
-    public void setDraw(Bow b)
-    {
-        bx = b.getStringx();
-        by = b.getStringy();
-    }
 
-    public int getFx() {
-        return fx;
-    }
 
-    public int getFy() {
-        return fy;
-    }
-
-    public int getBx() {
-        return bx;
-    }
-
-    public int getBy() {
-        return by;
-    }
-    public void curve(int value)
-    {
-        for(int i = value/2; i >= -value/2; i--)
-        {
-               dx = i;
-               dy = parabola(value);
-        }
-
-    }
     public int parabola(int val)
     {
-        int num = (val/10)^2;
+        int num = -1*(val/20)^2;
         return num;
     }
-    public void pull(int val, Graphics g)
-    {
 
-            drawpull(g,val);
+
+    public void pull(int val, Graphics g,int width)
+    {
+            drawpull(g,val,power);
     }
-    public void drawpull(Graphics g,int x){
-        g.drawImage(Arrow,620+x/20,388, 180,210,this);
+    public void drawpull(Graphics g,int x, int y){
+        g.drawImage(Arrow,620+x/20,388 - y, 180,210,this);
     }
 
 }

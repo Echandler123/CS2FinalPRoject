@@ -12,6 +12,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     private int x;
     private int y;
     private int val;
+    private int width;
     public GameViewer(int fWidth, int fHeight)
     {
         // Create a Ball with the 0 parameter constructor
@@ -24,6 +25,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         x = 0;
         y = 0;
         val = 0;
+        width = 0;
         // Initialize the User Interface
         setSize(fWidth, fHeight);
         setLocationRelativeTo(null);
@@ -82,7 +84,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         // Have the ball draw itself
         T.draw(g);
         B.draw(g,x,y);
-        A.pull(val,g);
+        A.pull(val,g,width);
     }
 
     @Override
