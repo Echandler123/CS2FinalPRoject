@@ -14,6 +14,8 @@ public class Arrow extends JFrame{
     private final int yt = 345;
     private int y2;
     private int count;
+    private int previous;
+    private boolean isreleased;
 
     public Arrow()
     {
@@ -64,7 +66,10 @@ public class Arrow extends JFrame{
         }
         return false;
   }
-
+  public void setPrevious(int previous)
+  {
+      this.previous = previous;
+  }
     public int getY2() {
         return y2;
     }
@@ -72,12 +77,23 @@ public class Arrow extends JFrame{
     public int getX2() {
         return x2;
     }
+    public void setMouseReleased(boolean released)
+    {
+        isreleased = released;
+    }
 
     public void drawpull(Graphics g, int x, int xa){
         x2 = (620+x/20);
         if(xa > 0) {
             x2 = xa;
             y2 = wval;
+        }
+        if(isreleased == true) {
+            if (y2 < previous) {
+                Arrow = new ImageIcon("Resources/ArrowUp.png").getImage();
+            } else if (y2 > previous) {
+                Arrow = new ImageIcon("Resources/ArrowDown.png").getImage();
+            }
         }
         System.out.println(x2 + " " + y2);
         g.drawImage(Arrow,x2,y2,180,210,this);
