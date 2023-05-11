@@ -4,7 +4,7 @@ import java.awt.image.ImageObserver;
 public class Arrow extends JFrame{
     private final int x = 520;
     private Image Arrow;
-    private int rval;
+    private int wval;
     private final int widthBinitail = 50;
     private int power;
     private int x2;
@@ -20,6 +20,7 @@ public class Arrow extends JFrame{
          this(400,400,0,0,0,0);
          Arrow = new ImageIcon("Resources/Arrow.png").getImage();
          x2 = 0;
+         y2 = 388;
          txpoints = new int[250];
          typoints = new int[250];
          for(int i = 0; i < 250; i++)
@@ -40,14 +41,13 @@ public class Arrow extends JFrame{
     {
 
     }
-    public int parabola(int val)
+    public void pull(int val, Graphics g,int x)
     {
-        int num = -1*(val/20)^2;
-        return num;
+            drawpull(g,val,x);
     }
-    public void pull(int val, Graphics g,int x,int ya)
+    public void setWidth(int val)
     {
-            drawpull(g,val,x,ya);
+        wval = val;
     }
    public boolean isHit() {
 
@@ -55,9 +55,9 @@ public class Arrow extends JFrame{
             if(x2 == txpoints[i]){
                 count++;
             }
-//            if(y2 == typoints[i]) {
-//                count++;
-//            }
+               if(y2 == typoints[i]) {
+                  count++;
+              }
         }
         if(count >= 1)
         {
@@ -65,12 +65,21 @@ public class Arrow extends JFrame{
         }
         return false;
   }
-    public void drawpull(Graphics g,int x, int xa,int ya){
+
+    public int getY2() {
+        return y2;
+    }
+
+    public int getX2() {
+        return x2;
+    }
+
+    public void drawpull(Graphics g, int x, int xa){
         x2 = (620+x/20);
         if(xa > 0) {
             x2 = xa;
+            y2 = wval;
         }
-        y2 = ya;
         System.out.println(x2 + " " + y2);
         g.drawImage(Arrow,x2,y2,180,210,this);
     }

@@ -10,6 +10,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     private Bow B;
     private Arrow A;
     private int clickNum;
+    private int power;
     private Target T;
     private int x;
     private int y;
@@ -32,7 +33,8 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         val = 0;
         width = 0;
         xa = 0;
-        ya = 388;
+        ya = 0;
+        power = 0;
         clock = new Timer(100,this);
         // Initialize the User Interface
         setSize(fWidth, fHeight);
@@ -92,17 +94,28 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         // Have the ball draw itself
         T.draw(g);
         B.draw(g,x,y);
-        A.pull(val,g,xa,ya);
-        if(A.isHit() == true){
-//            g.setColor(Color.GREEN);
-//            g.fillRect(0,0,1000,800);
-            g.setFont(new Font("SERIF",Font.ITALIC,60));
-            g.setColor(Color.black);
-            g.drawString("You Win!", 450, 450);
-        }
+        A.pull(val,g,xa);
+//        if(A.isHit() == true){
+////            g.setColor(Color.GREEN);
+////            g.fillRect(0,0,1000,800);
+//            g.setFont(new Font("SERIF",Font.ITALIC,60));
+//            g.setColor(Color.black);
+//            g.drawString("You Win!", 450, 450);
+//        }
     }
     public void actionPerformed(ActionEvent e)
     {
+        if (xa > 370 || (A.getX2() < 400 && A.getY2() < 120))
+        {
+            A.setWidth(width -= power);
+        }
+        else
+        {
+            if(A.getY2() <= 370)
+            {
+                A.setWidth(width += power);
+            }
+        }
         xa -= 10;
         if(xa == 100)
         {
@@ -124,6 +137,10 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     @Override
     public void mouseReleased(MouseEvent e) {
         //
+
+        power = (B.getWidth() - 95)^2;
+        width = 388;
+        A.setWidth(width);
         xa = 620;
         clock.start();
     }

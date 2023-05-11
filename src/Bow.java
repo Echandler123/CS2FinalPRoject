@@ -21,14 +21,12 @@ public class Bow extends JFrame{
     {
         x = 400;
     }
-    public int getStringx() {
-        return Stringx;
-    }
 
-    public int getStringy() {
-        return Stringy;
-    }
 
+    @Override
+    public int getWidth() {
+        return width;
+    }
 
     public void draw(Graphics g){
 
