@@ -50,14 +50,13 @@ public class Arrow extends JFrame{
         wval = val;
     }
    public boolean isHit() {
-
-        for(int i =0; i < 250; i++){
-            if(x2 == txpoints[i]){
-                count++;
+        for(int i =0; i < 250; i++) {
+            for(int j =0; j < 250; j++){
+                if(txpoints[i] == x2 && typoints[j] == y2){
+                    return true;
+                }
             }
-               if(y2 == typoints[i]) {
-                  count++;
-              }
+            return false;
         }
         if(count >= 1)
         {

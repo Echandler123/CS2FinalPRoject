@@ -19,6 +19,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     private int xa;
     private int ya;
     private Timer clock;
+    private Image background;
     public GameViewer(int fWidth, int fHeight)
     {
         // Create a Ball with the 0 parameter constructor
@@ -36,6 +37,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         ya = 0;
         power = 0;
         clock = new Timer(100,this);
+        background = new ImageIcon("Resources/BackGround.png").getImage();
         // Initialize the User Interface
         setSize(fWidth, fHeight);
         setLocationRelativeTo(null);
@@ -53,6 +55,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     }
     public void paint(Graphics g)
     {
+        g.drawImage(background,1000,800,this);
         // Configuration constants
         // Used to configure the location of the information box
         // and the Strings inside of it
@@ -95,13 +98,13 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         T.draw(g);
         B.draw(g,x,y);
         A.pull(val,g,xa);
-//        if(A.isHit() == true){
-////            g.setColor(Color.GREEN);
-////            g.fillRect(0,0,1000,800);
-//            g.setFont(new Font("SERIF",Font.ITALIC,60));
-//            g.setColor(Color.black);
-//            g.drawString("You Win!", 450, 450);
-//        }
+        if(A.isHit() == true){
+//            g.setColor(Color.GREEN);
+//            g.fillRect(0,0,1000,800);
+            g.setFont(new Font("Serif",Font.ITALIC,60));
+            g.setColor(Color.black);
+            g.drawString("You Win!", 450, 450);
+        }
     }
     public void actionPerformed(ActionEvent e)
     {
