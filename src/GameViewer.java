@@ -115,17 +115,8 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     }
     public void actionPerformed(ActionEvent e)
     {
-        if (xa > 370 || (A.getX2() < 400 && A.getY2() < 120))
-        {
-            A.setWidth(width -= power);
-        }
-        else
-        {
-            if(A.getY2() <= 370)
-            {
-                A.setWidth(width += power);
-            }
-        }
+        A.setWidth(width -= power);
+        power--;
         xa -= 10;
         if(xa == 100)
         {
@@ -148,7 +139,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     public void mouseReleased(MouseEvent e) {
         //
 
-        power = (B.getWidth() - 95)^2;
+        power = (B.getWidth() - 80)^2;
         width = 388;
         A.setWidth(width);
         xa = 620;
