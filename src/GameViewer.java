@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
+import java.util.concurrent.TimeUnit;
 
 
 public class GameViewer extends JFrame implements MouseListener, MouseMotionListener, KeyListener,ActionListener   {
@@ -55,7 +56,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     }
     public void paint(Graphics g)
     {
-        g.drawImage(background,1000,800,this);
+
         // Configuration constants
         // Used to configure the location of the information box
         // and the Strings inside of it
@@ -79,6 +80,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         // Set the background of the Frame to LIGHT_GRAY
         g.setColor(Color.WHITE);
         g.fillRect(0, getInsets().top, getWidth(), getHeight());
+        g.drawImage(background,0,0,1000,800,this);
         // Note: getInsets().top just finds where the Title Bar ends and the usable area starts
 
 //        // Set the Color of the information box to WHITE
@@ -99,8 +101,13 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         B.draw(g,x,y);
         A.pull(val,g,xa);
         if(A.isHit() == true){
-//            g.setColor(Color.GREEN);
-//            g.fillRect(0,0,1000,800);
+            try {
+                TimeUnit. SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            g.setColor(Color.GREEN);
+            g.fillRect(0,0,1000,800);
             g.setFont(new Font("Serif",Font.ITALIC,60));
             g.setColor(Color.black);
             g.drawString("You Win!", 450, 450);
