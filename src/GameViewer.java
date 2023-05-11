@@ -1,10 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JFrame;
 
-public class GameViewer extends JFrame implements MouseListener, MouseMotionListener {
+
+public class GameViewer extends JFrame implements MouseListener, MouseMotionListener, KeyListener,ActionListener   {
     private Bow B;
     private Arrow A;
     private int clickNum;
@@ -14,6 +16,8 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     private int val;
     private int width;
     private int xa;
+    private int ya;
+    private Timer clock;
     public GameViewer(int fWidth, int fHeight)
     {
         // Create a Ball with the 0 parameter constructor
@@ -27,6 +31,9 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         y = 0;
         val = 0;
         width = 0;
+        xa = 0;
+        ya = 388;
+        clock = new Timer(100,this);
         // Initialize the User Interface
         setSize(fWidth, fHeight);
         setLocationRelativeTo(null);
@@ -85,18 +92,28 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         // Have the ball draw itself
         T.draw(g);
         B.draw(g,x,y);
-        A.pull(val,g,xa);
+        A.pull(val,g,xa,ya);
+        if(A.isHit() == true){
+//            g.setColor(Color.GREEN);
+//            g.fillRect(0,0,1000,800);
+            g.setFont(new Font("SERIF",Font.ITALIC,60));
+            g.setColor(Color.black);
+            g.drawString("You Win!", 450, 450);
+        }
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        xa -= 10;
+        if(xa == 100)
+        {
+            clock.stop();
+        }
+        repaint();
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         //
-        xa = 620;
-        for(int i = 0; i < 32;i++ )
-        {
-            xa /= 10;
-            repaint();
-        }
     }
 
     @Override
@@ -107,6 +124,8 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     @Override
     public void mouseReleased(MouseEvent e) {
         //
+        xa = 620;
+        clock.start();
     }
 
     @Override
@@ -136,6 +155,24 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
 
     @Override
     public void mouseMoved(MouseEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e)
+    {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e)
+    {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e)
+    {
 
     }
 }
