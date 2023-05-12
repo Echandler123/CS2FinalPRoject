@@ -5,8 +5,6 @@ public class Target extends JFrame {
     public Target() {
         Target = new ImageIcon("Resources/Target.png").getImage();
     }
-
-
     public void draw(Graphics g){
         g.drawImage(Target,100,345, 250,250,this);
     }
