@@ -83,6 +83,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
     public void mouseExited(MouseEvent e) {
         //
     }
+    // Changes the width of the bow and changes the x of the arrow to move with the stretching bow
     @Override
     public void mouseDragged(MouseEvent e) {
         System.out.println("\t\t\texecuting mouseDragged event handler");
@@ -92,6 +93,7 @@ public class GameViewer extends JFrame implements MouseListener, MouseMotionList
         repaint();
     }
     @Override
+    // Checks if the user has read the instructions by seeing if their mouse moved then draws the game
     public void mouseMoved(MouseEvent e) {
         Start = true;
         repaint();
